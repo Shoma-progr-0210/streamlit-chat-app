@@ -1,0 +1,15 @@
+version: '3'
+services:
+  chatapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatapp
+    working_dir: '/opt/chatapp'
+    tty: true
+    volumes: 
+      - ./src:/opt/chatapp/src
+    env_file:
+      - openai.env
+    ports: 
+      - '8501:8501'
